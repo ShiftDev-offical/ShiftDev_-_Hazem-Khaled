@@ -13,17 +13,18 @@
         <div class="container">
             <a href="#" class="logo">
                 <img src="Logo.png" alt="الشعار" id="logo-img" style="height: 40px; vertical-align: middle;">
-                <span>Full-Stack Web Developer</span>
+                <span data-lang-ar="Full-Stack Web Developer" data-lang-en="Full-Stack Web Developer">Full-Stack Web Developer</span>
             </a>
             
             <nav class="navbar">
-                <a href="#home" class="active">الرئيسية</a>
-                <a href="#about">من أنا</a>
-                <a href="#portfolio">أعمالي</a>
-                <a href="#contact">اتصل بي</a>
+                <a href="#home" class="active" data-lang-ar="الرئيسية" data-lang-en="Home">الرئيسية</a>
+                <a href="#about" data-lang-ar="من أنا" data-lang-en="About">من أنا</a>
+                <a href="#portfolio" data-lang-ar="أعمالي" data-lang-en="Portfolio">أعمالي</a>
+                <a href="#contact" data-lang-ar="اتصل بي" data-lang-en="Contact">اتصل بي</a>
             </nav>
 
             <div class="nav-buttons">
+                <i class="fas fa-language" id="lang-toggle" title="Switch Language" style="cursor: pointer; margin-left: 10px;"></i>
                 <i class="fas fa-moon" id="theme-toggle"></i>
                 <i class="fas fa-bars" id="menu-bar"></i>
             </div>
@@ -33,23 +34,27 @@
     <section class="home" id="home">
         <div class="container home-wrapper">
             <div class="home-content">
-                <h3>أهلاً بك، أنا</h3>
+                <h3 data-lang-ar="أهلاً بك، أنا" data-lang-en="Welcome, I am">أهلاً بك، أنا</h3>
                 <h1>Hazem Khaled</h1>
-                <h2>Full-Stack Web Developer <span class="typing"></span></h2>
-                <p>أهتم بتحويل الأفكار المعقدة والخطط البرمجية إلى تطبيقات ومواقع ويب متكاملة، سريعة، وآمنة. أضمن لك تجربة مستخدم سلسة وأداءً استثنائياً يتوافق مع أحدث المعايير التقنية العالمية لنمو عملك بسلاسة.</p>
+                <h2 data-lang-ar="Full-Stack Web Developer" data-lang-en="Full-Stack Web Developer">Full-Stack Web Developer</h2>
+                <p data-lang-ar="أهتم بتحويل الأفكار المعقدة والخطط البرمجية إلى تطبيقات ومواقع ويب متكاملة، سريعة، وآمنة. أضمن لك تجربة مستخدم سلسة وأداءً استثنائياً يتوافق مع أحدث المعايير التقنية العالمية لنمو عملك بسلاسة." 
+                   data-lang-en="I specialize in transforming complex ideas and blueprints into responsive, fast, and secure web applications. I guarantee smooth user experiences and exceptional performance tailored to international technical standards.">
+                   أهتم بتحويل الأفكار المعقدة والخطط البرمجية إلى تطبيقات ومواقع ويب متكاملة، سريعة، وآمنة. أضمن لك تجربة مستخدم سلسة وأداءً استثنائياً يتوافق مع أحدث المعايير التقنية العالمية لنمو عملك بسلاسة.
+                </p>
+                
                 <div class="social-icons">
                     <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
                 <div class="buttons">
-                    <a href="#contact" class="btn">حول فكرتك لواقع</a>
-                    <a href="#" class="btn btn-outline">تحميل السيرة الذاتية <i class="fas fa-download"></i></a>
+                    <a href="#contact" class="btn" data-lang-ar="حول فكرتك لواقع" data-lang-en="Build Your Idea">حول فكرتك لواقع</a>
+                    <a href="#" class="btn btn-outline" data-lang-ar="السيرة الذاتية" data-lang-en="Resume">السيرة الذاتية <i class="fas fa-download"></i></a>
                 </div>
             </div>
             <div class="home-img">
                 <div class="img-box">
-                    <img src="Logo.png" alt="الصورة الشخصية أو الشعار">
+                    <img src="Logo.png" alt="الصورة الشخصية">
                 </div>
             </div>
         </div>
@@ -57,14 +62,17 @@
 
     <section class="about" id="about">
         <div class="container">
-            <h2 class="heading">من <span>أنا</span></h2>
+            <h2 class="heading" id="about-heading" data-lang-ar="من أنا" data-lang-en="About Me">من <span>أنا</span></h2>
             <div class="about-wrapper">
                 <div class="about-info">
-                    <h3>شغوف ببناء حلول برمجية متكاملة وقابلة للتطوير!</h3>
-                    <p>أنا مطور ويب متكامل (Full-Stack) بخبرة تزيد عن 3 سنوات في تصميم وهندسة المواقع الإلكترونية وأنظمة الويب. أتميز بالقدرة على التعامل مع واجهات المستخدم بدقة واحترافية (Front-End) بالإضافة إلى بناء وإدارة قواعد البيانات والعمليات الخلفية (Back-End) بكفاءة عالية. أهدافي دائماً ترتكز حول كتابة كود نظيف (Clean Code)، آمن، وقابل للتوسع المستقبلي لتلبية متطلبات الأنظمة الحديثة.</p>
+                    <h3 data-lang-ar="شغوف ببناء حلول برمجية متكاملة وقابلة للتطوير!" data-lang-en="Passionate about building scalable digital solutions!">شغوف ببناء حلول برمجية متكاملة وقابلة للتطوير!</h3>
+                    <p data-lang-ar="أنا مطور ويب متكامل (Full-Stack) بخبرة تمتد في تصميم وهندسة المواقع الإلكترونية وأنظمة الويب. أتميز بالقدرة على التعامل مع واجهات المستخدم بدقة واحترافية (Front-End) بالإضافة إلى بناء وإدارة قواعد البيانات والحوسبة الخلفية (Back-End) بكفاءة عالية. أهدافي دائماً ترتكز حول كتابة كود نظيف (Clean Code) وآمن."
+                       data-lang-en="I am a Full-Stack Web Developer experienced in engineering websites and web applications. I am proficient in bringing accurate frontend layouts to life while structuring secured databases and heavy backend services on the other side. My focus is always on clean and secure code.">
+                       أنا مطور ويب متكامل (Full-Stack) بخبرة تمتد في تصميم وهندسة المواقع الإلكترونية وأنظمة الويب. أتميز بالقدرة على التعامل مع واجهات المستخدم بدقة واحترافية (Front-End) بالإضافة إلى بناء وإدارة قواعد البيانات والحوسبة الخلفية (Back-End) بكفاءة عالية. أهدافي دائماً ترتكز حول كتابة كود نظيف (Clean Code) وآمن.
+                    </p>
                     
                     <div class="skills">
-                        <h3>مهاراتي البرمجية:</h3>
+                        <h3 data-lang-ar="مهاراتي البرمجية:" data-lang-en="Technical Skills:">مهاراتي البرمجية:</h3>
                         <div class="skills-list">
                             <span class="skill-badge">HTML5</span>
                             <span class="skill-badge">CSS3</span>
@@ -82,28 +90,34 @@
 
     <section class="portfolio" id="portfolio">
         <div class="container">
-            <h2 class="heading">آخر <span>أعمالي</span></h2>
+            <h2 class="heading" id="portfolio-heading" data-lang-ar="آخر أعمالي" data-lang-en="Latest Projects">آخر <span>أعمالي</span></h2>
             <div class="portfolio-grid">
                 
                 <div class="portfolio-card">
                     <div class="portfolio-img-container">
-                        <img src="WhatsApp Image 2026-06-27 at 6.31.46 PM.jpeg" alt="ZipTree by ShiftDev">
+                        <img src="WhatsApp Image 2026-06-27 at 6.31.46 PM.jpeg" alt="ZipTree Tool">
                     </div>
                     <div class="portfolio-layer">
                         <h4>ZipTree Tool</h4>
-                        <p>أداة ويب احترافية ومبتكرة تتيح للمطورين رفع ملفات الـ ZIP وتحليلها فوراً لاستخراج وعرض شجرة هيكلية كاملة للملفات والمجلدات (File Tree Visualizer) لتسهيل توثيق المشاريع وفهم بنيتها بسلاسة.</p>
-                        <a href="https://ziptree-by-shiftdev.vercel.app" target="_blank" title="زيارة المشروع"><i class="fas fa-external-link-alt"></i></a>
+                        <p data-lang-ar="أداة ويب مبتكرة تتيح للمطورين رفع ملفات الـ ZIP وتحليلها فوراً لاستخراج وعرض شجرة هيكلية كاملة للمجلدات (File Tree Visualizer) لتسهيل التوثيق وفهم البنية البرمجية." 
+                           data-lang-en="A developer-friendly tool to upload ZIP files and visually map out the entire folder structure into a clean tree view instantly.">
+                           أداة ويب مبتكرة تتيح للمطورين رفع ملفات الـ ZIP وتحليلها فوراً لاستخراج وعرض شجرة هيكلية كاملة للمجلدات (File Tree Visualizer) لتسهيل التوثيق وفهم البنية البرمجية.
+                        </p>
+                        <a href="https://ziptree-by-shiftdev.vercel.app" target="_blank"><i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
 
                 <div class="portfolio-card">
-                    <div class="portfolio-img-container" style="background: var(--card-bg);">
-                        <img src="Logo.png" alt="ShiftDev Portfolio Website" style="object-fit: contain; padding: 25px;">
+                    <div class="portfolio-img-container">
+                        <img src="Logo.png" alt="ShiftDev Portfolio">
                     </div>
                     <div class="portfolio-layer">
-                        <h4>ShiftDev Responsive Portfolio</h4>
-                        <p>موقعي الشخصي الاحترافي المتجاوب بالكامل. تم بناؤه وهندسته باستخدام تقنيات الويب الأساسية ليعمل كمعرض أعمال حي يعرض قدراتي البرمجية، ويدعم تغيير سمات المظهر (Dark/Light Mode) بسلاسة فائقة ونظام التمرير النشط.</p>
-                        <a href="#home" title="أنت هنا بالفعل!"><i class="fas fa-arrow-up"></i></a>
+                        <h4>ShiftDev Portfolio</h4>
+                        <p data-lang-ar="موقعي الشخصي الاحترافي المتجاوب بالكامل. تم بناؤه باستخدام تقنيات الويب الأساسية ليعمل كمعرض أعمال حي يدعم تغيير المظهر واللغات بسلاسة تامة." 
+                           data-lang-en="My dynamic personal portfolio built with vanilla web stacks to showcase my development skills, featuring full responsiveness and theme state toggling.">
+                           موقعي الشخصي الاحترافي المتجاوب بالكامل. تم بناؤه باستخدام تقنيات الويب الأساسية ليعمل كمعرض أعمال حي يدعم تغيير المظهر واللغات بسلاسة تامة.
+                        </p>
+                        <a href="#home"><i class="fas fa-arrow-up"></i></a>
                     </div>
                 </div>
 
@@ -113,24 +127,26 @@
 
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="heading">اتصل <span>بي</span></h2>
+            <h2 class="heading" id="contact-heading" data-lang-ar="اتصل بي" data-lang-en="Contact Me">اتصل <span>بي</span></h2>
             <form action="#" class="contact-form" method="POST">
                 <div class="input-box">
-                    <input type="text" name="name" placeholder="الاسم الكامل" required>
-                    <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+                    <input type="text" name="name" id="form-name" placeholder="الاسم الكامل" required>
+                    <input type="email" name="email" id="form-email" placeholder="البريد الإلكتروني" required>
                 </div>
                 <div class="input-box">
-                    <input type="number" name="phone" placeholder="رقم الهاتف">
-                    <input type="text" name="subject" placeholder="موضوع الرسالة">
+                    <input type="number" name="phone" id="form-phone" placeholder="رقم الهاتف">
+                    <input type="text" name="subject" id="form-subject" placeholder="موضوع الرسالة">
                 </div>
-                <textarea name="message" cols="30" rows="10" placeholder="اكتب تفاصيل مشروعك أو رسالتك هنا..." required></textarea>
-                <button type="submit" class="btn">إرسال الرسالة</button>
+                <textarea name="message" id="form-message" cols="30" rows="10" placeholder="رسالتك هنا..." required></textarea>
+                <button type="submit" class="btn" data-lang-ar="إرسال الرسالة" data-lang-en="Send Message">إرسال الرسالة</button>
             </form>
         </div>
     </section>
 
     <footer class="footer">
-        <p>تم التطوير بكل شغف بواسطة فريق <a href="mailto:shiftdev.contact.me@gmail.com">ShiftDev</a> | حازم خالد &copy; 2026</p>
+        <p id="footer-text" data-lang-ar="تم التطوير بكل شغف بواسطة فريق ShiftDev | حازم خالد &copy; 2026" data-lang-en="Developed with passion by ShiftDev team | Hazem Khaled &copy; 2026">
+            تم التطوير بكل شغف بواسطة فريق <a href="mailto:shiftdev.contact.me@gmail.com">ShiftDev</a> | حازم خالد &copy; 2026
+        </p>
     </footer>
 
     <script src="js/script.js"></script>
