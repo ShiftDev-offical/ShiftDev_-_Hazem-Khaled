@@ -3,142 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShiftDev | حازم خالد - الموقع الشخصي</title>
+    <title>الموقع الشخصي الاحترافي</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <a href="#" class="logo">Shift<span>Dev</span></a>
-        <div class="menu-toggle" id="mobile-menu">
-            <i class="fas fa-bars"></i>
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="Logo.png" alt="الشعار" id="logo-img" style="height: 40px; vertical-align: middle;">
+                <span>مهندس برمجيات</span>
+            </a>
+            
+            <nav class="navbar">
+                <a href="#home" class="active">الرئيسية</a>
+                <a href="#about">من أنا</a>
+                <a href="#portfolio">أعمالي</a>
+                <a href="#contact">اتصل بي</a>
+            </nav>
+
+            <div class="nav-buttons">
+                <i class="fas fa-moon" id="theme-toggle"></i>
+                <i class="fas fa-bars" id="menu-bar"></i>
+            </div>
         </div>
-        <nav class="navigation">
-            <a href="#about" class="nav-link active">الرئيسية</a>
-            <a href="#services" class="nav-link">الخدمات</a>
-            <a href="#skills" class="nav-link">المهارات</a>
-            <a href="#projects" class="nav-link">المشاريع</a>
-            <a href="#contact" class="nav-link">تواصل معي</a>
-        </nav>
     </header>
 
-    <section class="main" id="about">
-        <div class="main-content">
-            <h2>أهلاً بك، أنا <br><span class="name">حازم خالد</span></h2>
-            <h3>مطور ويب متكامل | <span class="highlight">ShiftDev</span></h3>
-            <p class="bio">شغوف ببناء تطبيقات ومواقع ويب متكاملة، سريعة، وآمنة باستخدام أحدث التقنيات. أركز على كتابة كود نظيف وتجربة مستخدم سلسة وعصرية.</p>
-            <div class="cta-buttons">
-                <a href="#projects" class="main-btn">تصفح أعمالي</a>
-                <a href="#contact" class="sec-btn">تواصل معي</a>
-            </div>
-            <div class="social-icons">
-                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-x-twitter"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <section class="services" id="services">
-        <h2 class="title">خدماتي</h2>
-        <div class="content">
-            <div class="card">
-                <div class="icon"><i class="fas fa-code"></i></div>
-                <div class="info">
-                    <h3>تطوير واجهات المستخدم (Frontend)</h3>
-                    <p>تصميم وتحويل التصاميم إلى مواقع متجاوبة، سريعة وتفاعلية بالكامل تناسب جميع الشاشات.</p>
+    <section class="home" id="home">
+        <div class="container home-wrapper">
+            <div class="home-content">
+                <h3>أهلاً بك، أنا</h3>
+                <h1>أحمد محمد</h1>
+                <h2>مطور ويب متكامل <span class="typing"></span></h2>
+                <p>أقوم ببناء مواقع وتطبيقات ويب سريعة، حديثة، ومتجاوبة بالكامل لتلبي احتياجات عملك وتمنح المستخدمين أفضل تجربة ممكنة.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="buttons">
+                    <a href="#contact" class="btn">وظفني</a>
+                    <a href="#" class="btn btn-outline">تحميل السيرة الذاتية <i class="fas fa-download"></i></a>
                 </div>
             </div>
-            <div class="card">
-                <div class="icon"><i class="fas fa-server"></i></div>
-                <div class="info">
-                    <h3>تطوير الأنظمة الخلفية (Backend)</h3>
-                    <p>بناء لوحات تحكم، إدارة قواعد البيانات وحمايتها، وربط العمليات البرمجية بكفاءة عالية.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="icon"><i class="fas fa-layer-group"></i></div>
-                <div class="info">
-                    <h3>تطبيقات ويب متكاملة (Full-Stack)</h3>
-                    <p>تقديم حلول برمجية متكاملة للمواقع بدءاً من الفكرة والتصميم وحتى البرمجة الخلفية وقواعد البيانات.</p>
+            <div class="home-img">
+                <div class="img-box">
+                    <img src="https://via.placeholder.com/400" alt="الصورة الشخصية">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="skills" id="skills">
-        <h2 class="title">مهاراتي البرمجية</h2>
-        <div class="skills-container">
-            <div class="skill-box"><i class="fab fa-html5"></i> <span>HTML5</span></div>
-            <div class="skill-box"><i class="fab fa-css3-alt"></i> <span>CSS3</span></div>
-            <div class="skill-box"><i class="fab fa-js"></i> <span>JavaScript</span></div>
-            <div class="skill-box"><i class="fab fa-php"></i> <span>PHP</span></div>
-            <div class="skill-box"><i class="fas fa-database"></i> <span>MySQL</span></div>
-            <div class="skill-box"><i class="fab fa-git-alt"></i> <span>Git & GitHub</span></div>
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="heading">من <span>أنا</span></h2>
+            <div class="about-wrapper">
+                <div class="about-info">
+                    <h3>شغوف بتحويل الأفكار إلى واقع رقمي!</h3>
+                    <p>لدي خبرة تزيد عن 3 سنوات في مجال تطوير وتصميم المواقع الإلكترونية. أركز دائماً على كتابة كود نظيف وقابل للتطوير مع الاهتمام بأدق تفاصيل التصميم والتجربة الشخصية للمستخدم.</p>
+                    
+                    <div class="skills">
+                        <h3>مهاراتي:</h3>
+                        <div class="skills-list">
+                            <span class="skill-badge">HTML5</span>
+                            <span class="skill-badge">CSS3</span>
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">Responsive Design</span>
+                            <span class="skill-badge">Git & GitHub</span>
+                            <span class="skill-badge">Bootstrap / Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="projects" id="projects">
-        <h2 class="title">مشاريعي الأخيرة</h2>
-        <div class="content">
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="https://via.placeholder.com/400x250" alt="Project 1">
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="heading">آخر <span>أعمالي</span></h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <img src="https://via.placeholder.com/350x220" alt="مشروع 1">
+                    <div class="portfolio-layer">
+                        <h4>منصة تجارة إلكترونية</h4>
+                        <p>موقع متكامل لبيع المنتجات مع سلة مشتريات وتصميم متجاوب.</p>
+                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
                 </div>
-                <div class="project-info">
-                    <p class="project-category">تطبيقات الويب (Backend)</p>
-                    <strong class="project-title">
-                        <span>نظام إدارة المحتوى ذكي</span>
-                        <a href="#" class="more-details">معاينة <i class="fas fa-external-link-alt"></i></a>
-                    </strong>
+                <div class="portfolio-card">
+                    <img src="https://via.placeholder.com/350x220" alt="مشروع 2">
+                    <div class="portfolio-layer">
+                        <h4>تطبيق إدارة المهام</h4>
+                        <p>تطبيق ويب يساعد المستخدمين على تنظيم مهامهم اليومية بسلاسة.</p>
+                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
                 </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="https://via.placeholder.com/400x250" alt="Project 2">
-                </div>
-                <div class="project-info">
-                    <p class="project-category">Full-Stack Development</p>
-                    <strong class="project-title">
-                        <span>موقع تجارة إلكترونية متكامل</span>
-                        <a href="#" class="more-details">معاينة <i class="fas fa-external-link-alt"></i></a>
-                    </strong>
+                <div class="portfolio-card">
+                    <img src="https://via.placeholder.com/350x220" alt="مشروع 3">
+                    <div class="portfolio-layer">
+                        <h4>موقع شركة عقارية</h4>
+                        <p>تصميم عصري وجذاب لشركة عقارات لعرض العقارات والميزات.</p>
+                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="contact" id="contact">
-        <h2 class="title">دعنا نعمل معاً</h2>
-        <div class="content">
-            <div class="card contact-item">
-                <div class="icon"><i class="fas fa-phone"></i></div>
-                <div class="info">
-                    <h3>الهاتف</h3>
-                    <p dir="ltr">+20 100 000 0000</p>
+        <div class="container">
+            <h2 class="heading">اتصل <span>بي</span></h2>
+            <form action="#" class="contact-form">
+                <div class="input-box">
+                    <input type="text" placeholder="الاسم الكامل" required>
+                    <input type="email" placeholder="البريد الإلكتروني" required>
                 </div>
-            </div>
-            <div class="card contact-item">
-                <div class="icon"><i class="fas fa-envelope"></i></div>
-                <div class="info">
-                    <h3>البريد الإلكتروني</h3>
-                    <p>hazem@shiftdev.com</p>
+                <div class="input-box">
+                    <input type="number" placeholder="رقم الهاتف">
+                    <input type="text" placeholder="موضوع الرسالة">
                 </div>
-            </div>
+                <textarea cols="30" rows="10" placeholder="رسالتك هنا..." required></textarea>
+                <button type="submit" class="btn">إرسال الرسالة</button>
+            </form>
         </div>
     </section>
 
-    <footer>
-        <p>جميع الحقوق محفوظة &copy; <span>ShiftDev</span> <span id="year"></span></p>
-        <div class="footer-social">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-        </div>
+    <footer class="footer">
+        <p>جميع الحقوق محفوظة © 2026 | تم التصميم بكل حُب.</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
-                  </html>
+</html>
