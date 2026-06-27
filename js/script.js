@@ -46,7 +46,6 @@ window.onscroll = () => {
             navLinks.forEach(links => {
                 links.classList.remove('active');
                 const targetLink = document.querySelector('.navbar a[href*=' + id + ']');
-                if(targetLink) targetLink.classList.add('add');
                 if(targetLink) targetLink.classList.add('active');
             });
         }
@@ -64,7 +63,6 @@ const placeholders = {
 };
 
 langToggle.addEventListener('click', () => {
-    // إطلاق تأثير الاختفاء التدريجي المريح قبل تغيير اللغة للجمالية والاحترافية
     document.body.classList.add('lang-changing');
     
     setTimeout(() => {
@@ -74,11 +72,14 @@ langToggle.addEventListener('click', () => {
             htmlDoc.setAttribute('lang', 'en');
             htmlDoc.setAttribute('dir', 'ltr');
             
+            // تحديث العناوين الرئيسية للأقسام بما فيها العناوين الجديدة
             document.getElementById('about-heading').innerHTML = 'About <span>Me</span>';
             document.getElementById('portfolio-heading').innerHTML = 'Latest <span>Projects</span>';
+            document.getElementById('info-heading').innerHTML = 'Contact <span>Information</span>';
             document.getElementById('contact-heading').innerHTML = 'Contact <span>Me</span>';
             document.getElementById('footer-text').innerHTML = 'Developed with passion by <a href="mailto:shiftdev.contact.me@gmail.com">ShiftDev</a> | Hazem Khaled &copy; 2026';
             
+            // تحديث الحقول
             document.getElementById('form-name').placeholder = placeholders.en.name;
             document.getElementById('form-email').placeholder = placeholders.en.email;
             document.getElementById('form-phone').placeholder = placeholders.en.phone;
@@ -91,6 +92,7 @@ langToggle.addEventListener('click', () => {
             
             document.getElementById('about-heading').innerHTML = 'من <span>أنا</span>';
             document.getElementById('portfolio-heading').innerHTML = 'آخر <span>أعمالي</span>';
+            document.getElementById('info-heading').innerHTML = 'معلومات <span>التواصل</span>';
             document.getElementById('contact-heading').innerHTML = 'اتصل <span>بي</span>';
             document.getElementById('footer-text').innerHTML = 'تم التطوير بكل شغف بواسطة فريق <a href="mailto:shiftdev.contact.me@gmail.com">ShiftDev</a> | حازم خالد &copy; 2026';
             
@@ -101,7 +103,7 @@ langToggle.addEventListener('click', () => {
             document.getElementById('form-message').placeholder = placeholders.ar.message;
         }
         
-        // تحديث كافة النصوص الحاملة لخصائص الداتا
+        // تحديث كافة النصوص الحاملة لخصائص الداتا (تشمل محتويات داخل كروت المشاريع وكروت التواصل)
         document.querySelectorAll('[data-lang-ar]').forEach(el => {
             const lang = htmlDoc.getAttribute('lang');
             if (lang === 'en') {
@@ -111,7 +113,6 @@ langToggle.addEventListener('click', () => {
             }
         });
         
-        // سحب تأثير الاختفاء وإرجاع الصفحة للسطوع لتكتمل الحركة الفنية بنجاح
         document.body.classList.remove('lang-changing');
-    }, 400); // 400 مللي ثانية كافية وممتازة للتأثير السينمائي الخاطف
+    }, 400);
 });
