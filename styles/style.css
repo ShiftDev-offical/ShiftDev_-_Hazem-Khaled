@@ -13,7 +13,6 @@
     --transition-speed: 0.3s;
 }
 
-/* ألوان الوضع المظلم (Dark Mode) */
 .dark-theme {
     --bg-color: #0f172a;
     --second-bg-color: #1e293b;
@@ -24,7 +23,7 @@
 }
 
 /* ==========================================================================
-   2. تصفير الهوامش والإعدادات العامة (Reset & Base Styles)
+   2. ضبط التصفير القياسي (Reset)
    ========================================================================== */
 * {
     margin: 0;
@@ -50,7 +49,7 @@ body {
 }
 
 /* ==========================================================================
-   3. شريط التنقل العلوي (Header & Navbar)
+   3. شريط التنقل (Header & Navbar)
    ========================================================================== */
 .header {
     position: fixed;
@@ -78,16 +77,19 @@ body {
 }
 .logo span { 
     color: var(--main-color); 
-    font-size: 15px; 
+    font-size: 14px; 
     font-weight: 400;
-    border-right: 2px solid var(--card-bg);
-    padding-right: 12px;
+    border-inline-start: 2px solid var(--card-bg);
+    padding-inline-start: 12px;
 }
+
+/* دعم الهوامش الديناميكية حسب اتجاه اللغة */
+html[dir="ltr"] .navbar a { margin-right: 0; margin-left: 30px; }
+html[dir="rtl"] .navbar a { margin-left: 0; margin-right: 30px; }
 
 .navbar a {
     font-size: 16px;
     color: var(--text-color);
-    margin-right: 30px;
     font-weight: 600;
     transition: color var(--transition-speed);
 }
@@ -106,7 +108,7 @@ body {
 #menu-bar { display: none; }
 
 /* ==========================================================================
-   4. تنسيقات الأقسام العامة (Sections Styles)
+   4. الأقسام العامة (Sections Base)
    ========================================================================== */
 section {
     padding: 120px 0 80px 0;
@@ -131,26 +133,20 @@ section {
     align-items: center;
     justify-content: space-between;
     gap: 40px;
-    width: 85%;
+    width: 100%;
 }
-.home-content h3 { font-size: 24px; font-weight: 600; }
 .home-content h1 { font-size: 54px; margin: 5px 0; color: var(--text-color); }
 .home-content h2 { font-size: 28px; color: var(--main-color); margin-bottom: 20px; }
 .home-content p { font-size: 16px; line-height: 1.8; margin-bottom: 25px; max-width: 600px; }
 
-.social-icons {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 30px;
-}
+.social-icons { display: flex; gap: 15px; margin-bottom: 30px; }
 .social-icons a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     width: 42px; height: 42px;
-    background: transparent;
     border: 2px solid var(--main-color);
-    border-radius: 8px; /* تصميم مربع احترافي بحواف ناعمة متناسق مع الأيقونات المربعة */
+    border-radius: 8px;
     font-size: 20px;
     color: var(--main-color);
     transition: 0.3s ease;
@@ -185,9 +181,9 @@ section {
 .btn-outline:hover { background: var(--main-color); color: #fff; }
 
 .home-img .img-box img {
-    width: 350px;
-    height: 350px;
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* شكل هندسي احترافي متحرك */
+    width: 320px;
+    height: 320px;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     border: 5px solid var(--main-color);
     object-fit: cover;
     animation: morphing 8s infinite ease-in-out;
@@ -225,44 +221,64 @@ section {
 }
 
 /* ==========================================================================
-   7. قسم معرض الأعمال (Portfolio Section)
+   7. قسم المعرض والأبعاد المحمية للمشاريع (Aspect Ratio 9:16)
    ========================================================================== */
 .portfolio .container { display: flex; flex-direction: column; }
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
 }
 .portfolio-card {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    height: 250px;
+    background: var(--second-bg-color);
+    border: 1px solid var(--card-bg);
+    padding: 15px; /* مسافة التناغم الهندسية الثابتة */
 }
-.portfolio-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s ease; }
-.portfolio-card:hover img { transform: scale(1.1); }
+
+.portfolio-img-container {
+    width: 100%;
+    aspect-ratio: 9 / 16; /* إجبار الصورة على أبعاد 9:16 دون تمطيط */
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-color);
+}
+
+.portfolio-img-container img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; /* حماية هيكل الصورة والأب من التشويه */
+    transition: 0.5s ease; 
+}
+.portfolio-card:hover .portfolio-img-container img { transform: scale(1.05); }
 
 .portfolio-layer {
     position: absolute;
     bottom: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.2), var(--main-color) 90%);
+    background: linear-gradient(rgba(0,0,0,0.4), var(--main-color) 90%);
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     text-align: center; padding: 0 20px;
     transform: translateY(100%); transition: 0.5s ease; color: #fff;
+    z-index: 2;
 }
 .portfolio-card:hover .portfolio-layer { transform: translateY(0); }
-.portfolio-layer h4 { font-size: 22px; font-weight: 700; }
-.portfolio-layer p { font-size: 14px; margin: 10px 0 15px; line-height: 1.6; }
+.portfolio-layer h4 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+.portfolio-layer p { font-size: 13px; line-height: 1.6; margin-bottom: 20px; }
 .portfolio-layer a {
     width: 45px; height: 45px; background: #fff; border-radius: 50%;
     display: inline-flex; justify-content: center; align-items: center; color: #333; font-size: 18px;
     transition: 0.3s;
 }
-.portfolio-layer a:hover { transform: scale(1.1); background: var(--card-bg); }
 
 /* ==========================================================================
-   8. قسم الاتصال (Contact Section)
+   8. قسم الاتصال والفوتر (Contact & Footer)
    ========================================================================== */
 .contact { background: var(--second-bg-color); }
 .contact .container { display: flex; flex-direction: column; }
@@ -279,11 +295,7 @@ section {
 }
 .contact-form .input-box input { width: 49%; }
 .contact-form textarea { resize: none; }
-.contact-form .btn { margin-top: 10px; padding: 14px 35px; }
 
-/* ==========================================================================
-   9. الفوتر المحدث (Footer Styles)
-   ========================================================================== */
 .footer {
     background: var(--bg-color);
     text-align: center;
@@ -291,35 +303,24 @@ section {
     border-top: 1px solid var(--card-bg);
     font-size: 15px;
     color: var(--text-color);
-    transition: background var(--transition-speed), border-color var(--transition-speed);
 }
-.footer a {
-    color: var(--footer-link);
-    font-weight: 700;
-    transition: 0.3s ease;
-}
-.footer a:hover {
-    text-decoration: underline;
-    opacity: 0.9;
-}
+.footer a { color: var(--footer-link); font-weight: 700; text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
 
 /* ==========================================================================
-   10. شاشات التجاوب (Responsive Media Queries)
+   9. شاشات التجاوب (Media Queries)
    ========================================================================== */
 @media (max-width: 991px) {
     .container { width: 90%; }
     section { padding: 100px 0 60px 0; }
-    .home-wrapper { flex-direction: column-reverse; text-align: center; margin: 0 auto; }
-    .home-content h1 { font-size: 42px; }
-    .buttons { justify-content: center; }
-    .social-icons { justify-content: center; }
+    .home-wrapper { flex-direction: column-reverse; text-align: center; }
+    .buttons, .social-icons { justify-content: center; }
     .contact-form .input-box input { width: 100%; }
-    .logo span { display: none; } /* إخفاء النص الفرعي الصغير في الشاشات المتوسطة للمحافظة على المظهر */
+    .logo span { display: none; }
 }
 
 @media (max-width: 768px) {
     #menu-bar { display: block; }
-    
     .navbar {
         position: absolute; top: 100%; left: 0; width: 100%;
         background: var(--second-bg-color); padding: 15px 0;
@@ -328,10 +329,6 @@ section {
         border-top: 1px solid var(--card-bg);
     }
     .navbar.active { display: flex; }
-    .navbar a { display: block; margin: 15px 0; font-size: 18px; margin-right: 0; }
-    
-    .home-img .img-box img {
-        width: 260px;
-        height: 260px;
-    }
+    .navbar a { display: block; margin: 15px 0; font-size: 18px; margin-inline-end: 0 !important; }
+    .home-img .img-box img { width: 260px; height: 260px; }
 }
