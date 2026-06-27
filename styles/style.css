@@ -11,6 +11,7 @@
     --card-bg: #eeeeee;
     --footer-link: #005b94;
     --transition-speed: 0.3s;
+    --overlay-bg: rgba(0, 123, 196, 0.9);
 }
 
 .dark-theme {
@@ -20,6 +21,7 @@
     --main-color: #38bdf8;
     --card-bg: #334155;
     --footer-link: #38bdf8;
+    --overlay-bg: rgba(15, 23, 42, 0.9);
 }
 
 /* ==========================================================================
@@ -41,10 +43,9 @@ body {
     color: var(--text-color);
     transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
     overflow-x: hidden;
-    padding-inline: 15px; /* حماية الهيكل الخارجي الكلي للمتصفح */
+    padding-inline: 15px;
 }
 
-/* تأثير الأنيميشن والوميض عند تفعيل الترجمة البرمجية */
 .lang-transition {
     transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
 }
@@ -55,9 +56,9 @@ body {
 
 .container {
     width: 100%;
-    max-width: 1200px; /* جعل العرض قياسي ومحكم */
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; /* منع التلاصق الجانبي نهائياً يمين ويسار */
+    padding: 0 20px;
 }
 
 /* ==========================================================================
@@ -177,61 +178,146 @@ section {
 .skill-badge { background: var(--card-bg); color: var(--text-color); padding: 8px 18px; border-radius: 6px; font-weight: 600; }
 
 /* ==========================================================================
-   7. قسم أعمالي (الكروت الأفقية الاحترافية والمسافات المحمية 9:16)
+   7. قسم أعمالي المعدل (تأثير الـ Hover الذكي والصور الأفقية)
    ========================================================================== */
 .portfolio-grid {
-    display: flex;
-    flex-direction: column; /* جعل ترتيب الكروت رأسياً تحت بعضها */
-    gap: 40px; /* الفراغ بين الكارت والآخر */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
     width: 100%;
 }
 
 .portfolio-card {
-    display: flex; /* تحويل محاذاة الكارت الداخلي ليكون أفقياً (عرضياً) بالكامل */
-    align-items: center;
-    background: var(--second-bg-color);
-    border: 1px solid var(--card-bg);
-    border-radius: 16px;
-    padding: 24px; /* مسافة وفراغ الحماية الهندسية حول المحتوى والأب */
-    gap: 30px; /* الفراغ المريح بين الصورة والنصوص بجانبها */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-}
-.portfolio-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-}
-
-/* حاوية الصورة لفرض الأبعاد الطولية الذكية 9:16 بشكل متزن عرضياً */
-.portfolio-img-container {
-    flex: 0 0 180px; /* عرض ثابت وعادل للصورة داخل الكارت الأفقي */
-    aspect-ratio: 9 / 16; /* نسبة الـ 9:16 المطلوبة بدقة */
+    position: relative;
     border-radius: 12px;
     overflow: hidden;
-    background: var(--bg-color);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    aspect-ratio: 16 / 10; /* فرض أبعاد صورة أفقية متزنة للمشاريع */
+    background: var(--second-bg-color);
+    border: 2px solid var(--card-bg);
 }
-.portfolio-img-container img {
+
+.portfolio-card img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* منع تمدد أو تمطيط محتوى لقطة الشاشة */
-    transition: transform 0.4s ease;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
-.portfolio-card:hover .portfolio-img-container img { transform: scale(1.04); }
 
-/* صندوق البيانات النصية الملاصق للصورة أفقياً */
-.portfolio-info-box {
-    flex: 1;
+/* طبقة تفاصيل المشروع التي تظهر من الأسفل للأعلى */
+.portfolio-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    width: 100%; height: 100%;
+    background: var(--overlay-bg);
+    backdrop-filter: blur(4px); /* لمسة زجاجية فخمة */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* محاذاة البيانات بحسب اتجاه الصفحة */
+    align-items: center;
+    padding: 25px;
+    text-align: center;
+    transform: translateY(100%); /* البداية خارج الكارت من الأسفل */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
-.portfolio-info-box h4 { font-size: 24px; font-weight: 700; color: var(--text-color); margin-bottom: 12px; }
-.portfolio-info-box p { font-size: 15px; line-height: 1.8; color: var(--text-color); opacity: 0.85; margin-bottom: 20px; text-align: justify; }
-.btn-project { padding: 10px 20px; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
+
+.portfolio-card:hover .portfolio-overlay {
+    transform: translateY(0); /* الظهور الكامل عند عمل Hover */
+}
+
+.portfolio-card:hover img {
+    transform: scale(1.1); /* تأثير تقريب طفيف للصورة بالخلفية */
+}
+
+.portfolio-overlay h4 {
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.portfolio-overlay p {
+    font-size: 14px;
+    color: #f1f5f9;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.btn-project {
+    padding: 8px 18px;
+    font-size: 14px;
+    background: var(--main-color);
+    color: #fff;
+    border: 1px solid #fff;
+}
+.btn-project:hover {
+    background: #fff;
+    color: var(--main-color);
+}
 
 /* ==========================================================================
-   8. قسم الاتصال والفوتر
+   8. قسم معلومات التواصل المضاف حديثاً
+   ========================================================================== */
+.contact-info-section {
+    background: var(--bg-color);
+    padding: 100px 0 60px 0;
+}
+
+.info-cards-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.info-card {
+    background: var(--second-bg-color);
+    border: 1px solid var(--card-bg);
+    border-radius: 12px;
+    padding: 25px 35px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-width: 300px;
+    flex: 1;
+    max-width: 450px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border-color: var(--main-color);
+}
+
+.info-card .icon-box {
+    width: 55px;
+    height: 55px;
+    background: var(--card-bg);
+    color: var(--main-color);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.info-card .info-text h3 {
+    font-size: 18px;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.info-card .info-text p {
+    font-size: 15px;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* ==========================================================================
+   9. قسم الاتصال والفوتر
    ========================================================================== */
 .contact { background: var(--second-bg-color); }
 .contact-form { max-width: 750px; margin: 0 auto; width: 100%; }
@@ -248,7 +334,7 @@ section {
 .footer a { color: var(--footer-link); font-weight: 700; }
 
 /* ==========================================================================
-   9. شاشات التجاوب والتحول الذكي للهواتف
+   10. شاشات التجاوب والتحول الذكي للهواتف
    ========================================================================== */
 @media (max-width: 991px) {
     section { padding: 100px 0 60px 0; }
@@ -267,8 +353,14 @@ section {
     .navbar.active { display: flex; }
     .navbar a { display: block; margin: 15px 0; font-size: 18px; margin-inline-end: 0 !important; }
     
-    /* عند الموبايل، تقلب الكروت الأفقية لعمودية تلقائياً لراحة اليد والقراءة */
-    .portfolio-card { flex-direction: column; align-items: stretch; text-align: center; }
-    .portfolio-img-container { flex: 0 0 auto; width: 100%; max-width: 220px; margin: 0 auto; }
-    .portfolio-info-box { align-items: center; }
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    .info-cards-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .info-card {
+        width: 100%;
+    }
 }
