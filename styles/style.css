@@ -11,7 +11,7 @@
     --card-bg: #eeeeee;
     --footer-link: #005b94;
     --transition-speed: 0.3s;
-    --overlay-bg: rgba(0, 123, 196, 0.9);
+    --overlay-bg: radial-gradient(circle, rgba(0, 123, 196, 0.65) 0%, rgba(0, 91, 148, 0.85) 100%);
 }
 
 .dark-theme {
@@ -21,7 +21,7 @@
     --main-color: #38bdf8;
     --card-bg: #334155;
     --footer-link: #38bdf8;
-    --overlay-bg: rgba(15, 23, 42, 0.9);
+    --overlay-bg: radial-gradient(circle, rgba(56, 189, 248, 0.45) 0%, rgba(15, 23, 42, 0.9) 100%);
 }
 
 /* ==========================================================================
@@ -178,7 +178,7 @@ section {
 .skill-badge { background: var(--card-bg); color: var(--text-color); padding: 8px 18px; border-radius: 6px; font-weight: 600; }
 
 /* ==========================================================================
-   7. قسم أعمالي المعدل (تأثير الـ Hover الذكي والصور الأفقية)
+   7. قسم أعمالي (تأثير الـ Hover الاحترافي والتدرج الدائري التلقائي)
    ========================================================================== */
 .portfolio-grid {
     display: grid;
@@ -192,41 +192,43 @@ section {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-    aspect-ratio: 16 / 10; /* فرض أبعاد صورة أفقية متزنة للمشاريع */
-    background: var(--second-bg-color);
+    aspect-ratio: 16 / 10;
+    background: rgba(0, 0, 0, 0.05); /* ملء الفراغات الجانبية بلون داكن خفيف مميز */
     border: 2px solid var(--card-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .portfolio-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* الصورة تظهر كاملة بدون أي قص نهائياً */
     transition: transform 0.5s ease;
 }
 
-/* طبقة تفاصيل المشروع التي تظهر من الأسفل للأعلى */
 .portfolio-overlay {
     position: absolute;
     bottom: 0; left: 0; right: 0;
     width: 100%; height: 100%;
     background: var(--overlay-bg);
-    backdrop-filter: blur(4px); /* لمسة زجاجية فخمة */
+    backdrop-filter: blur(6px); /* تأثير الطبقة الزجاجية الفاخرة */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 25px;
     text-align: center;
-    transform: translateY(100%); /* البداية خارج الكارت من الأسفل */
+    transform: translateY(100%);
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .portfolio-card:hover .portfolio-overlay {
-    transform: translateY(0); /* الظهور الكامل عند عمل Hover */
+    transform: translateY(0);
 }
 
 .portfolio-card:hover img {
-    transform: scale(1.1); /* تأثير تقريب طفيف للصورة بالخلفية */
+    transform: scale(1.03);
 }
 
 .portfolio-overlay h4 {
@@ -234,6 +236,7 @@ section {
     color: #fff;
     margin-bottom: 10px;
     font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .portfolio-overlay p {
@@ -241,6 +244,7 @@ section {
     color: #f1f5f9;
     line-height: 1.6;
     margin-bottom: 15px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .btn-project {
@@ -249,10 +253,12 @@ section {
     background: var(--main-color);
     color: #fff;
     border: 1px solid #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 .btn-project:hover {
     background: #fff;
     color: var(--main-color);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
 }
 
 /* ==========================================================================
