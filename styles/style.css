@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. إعدادات الخطوط والألوان العامة المتغيرة (Variables & Fonts)
+   1. إعدادات الألوان والخطوط العامة
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
 
@@ -23,7 +23,7 @@
 }
 
 /* ==========================================================================
-   2. ضبط التصفير القياسي (Reset)
+   2. حماية وتصفير الحواف لعدم التلاصق الجانبي
    ========================================================================== */
 * {
     margin: 0;
@@ -41,15 +41,27 @@ body {
     color: var(--text-color);
     transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
     overflow-x: hidden;
+    padding-inline: 15px; /* حماية الهيكل الخارجي الكلي للمتصفح */
+}
+
+/* تأثير الأنيميشن والوميض عند تفعيل الترجمة البرمجية */
+.lang-transition {
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+.lang-changing {
+    opacity: 0.1;
+    transform: scale(0.99);
 }
 
 .container {
-    width: 85%;
+    width: 100%;
+    max-width: 1200px; /* جعل العرض قياسي ومحكم */
     margin: 0 auto;
+    padding: 0 20px; /* منع التلاصق الجانبي نهائياً يمين ويسار */
 }
 
 /* ==========================================================================
-   3. شريط التنقل (Header & Navbar)
+   3. شريط التنقل المتزن
    ========================================================================== */
 .header {
     position: fixed;
@@ -60,13 +72,11 @@ body {
     padding: 15px 0;
     transition: background var(--transition-speed) ease;
 }
-
 .header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .logo {
     font-size: 20px;
     font-weight: 700;
@@ -83,7 +93,6 @@ body {
     padding-inline-start: 12px;
 }
 
-/* دعم الهوامش الديناميكية حسب اتجاه اللغة */
 html[dir="ltr"] .navbar a { margin-right: 0; margin-left: 30px; }
 html[dir="rtl"] .navbar a { margin-left: 0; margin-right: 30px; }
 
@@ -93,9 +102,7 @@ html[dir="rtl"] .navbar a { margin-left: 0; margin-right: 30px; }
     font-weight: 600;
     transition: color var(--transition-speed);
 }
-.navbar a:hover, .navbar a.active {
-    color: var(--main-color);
-}
+.navbar a:hover, .navbar a.active { color: var(--main-color); }
 
 .nav-buttons {
     display: flex;
@@ -108,21 +115,15 @@ html[dir="rtl"] .navbar a { margin-left: 0; margin-right: 30px; }
 #menu-bar { display: none; }
 
 /* ==========================================================================
-   4. الأقسام العامة (Sections Base)
+   4. الأقسام العامة والتوزيع المتناسق
    ========================================================================== */
 section {
-    padding: 120px 0 80px 0;
+    padding: 140px 0 80px 0;
     min-height: 100vh;
     display: flex;
     align-items: center;
 }
-
-.heading {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 50px;
-    width: 100%;
-}
+.heading { text-align: center; font-size: 36px; margin-bottom: 50px; width: 100%; }
 .heading span { color: var(--main-color); }
 
 /* ==========================================================================
@@ -132,7 +133,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 40px;
+    gap: 50px;
     width: 100%;
 }
 .home-content h1 { font-size: 54px; margin: 5px 0; color: var(--text-color); }
@@ -141,58 +142,28 @@ section {
 
 .social-icons { display: flex; gap: 15px; margin-bottom: 30px; }
 .social-icons a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 42px; height: 42px;
-    border: 2px solid var(--main-color);
-    border-radius: 8px;
-    font-size: 20px;
-    color: var(--main-color);
-    transition: 0.3s ease;
+    display: inline-flex; justify-content: center; align-items: center;
+    width: 42px; height: 42px; border: 2px solid var(--main-color);
+    border-radius: 8px; font-size: 20px; color: var(--main-color); transition: 0.3s;
 }
-.social-icons a:hover {
-    background: var(--main-color);
-    color: #fff;
-    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3);
-    transform: translateY(-3px);
-}
+.social-icons a:hover { background: var(--main-color); color: #fff; transform: translateY(-3px); }
 
 .buttons { display: flex; gap: 15px; }
 .btn {
-    display: inline-block;
-    padding: 12px 28px;
-    background: var(--main-color);
-    color: #fff;
-    border-radius: 6px;
-    font-weight: 600;
-    transition: 0.3s ease;
-    cursor: pointer;
+    display: inline-block; padding: 12px 28px; background: var(--main-color);
+    color: #fff; border-radius: 6px; font-weight: 600; transition: 0.3s ease; cursor: pointer;
 }
-.btn:hover { 
-    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4); 
-    transform: translateY(-2px);
-}
-.btn-outline {
-    background: transparent;
-    border: 2px solid var(--main-color);
-    color: var(--main-color);
-}
+.btn:hover { box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4); transform: translateY(-2px); }
+.btn-outline { background: transparent; border: 2px solid var(--main-color); color: var(--main-color); }
 .btn-outline:hover { background: var(--main-color); color: #fff; }
 
 .home-img .img-box img {
-    width: 320px;
-    height: 320px;
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    border: 5px solid var(--main-color);
-    object-fit: cover;
-    animation: morphing 8s infinite ease-in-out;
+    width: 300px; height: 300px; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    border: 5px solid var(--main-color); object-fit: cover; animation: morphing 8s infinite ease-in-out;
 }
-
 @keyframes morphing {
-    0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
     50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
-    100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
 }
 
 /* ==========================================================================
@@ -202,121 +173,88 @@ section {
 .about .container { display: flex; flex-direction: column; }
 .about-info h3 { font-size: 24px; margin-bottom: 15px; color: var(--text-color); }
 .about-info p { font-size: 16px; line-height: 1.8; margin-bottom: 30px; text-align: justify; }
-
-.skills h3 { font-size: 20px; margin-bottom: 15px; }
 .skills-list { display: flex; flex-wrap: wrap; gap: 12px; }
-.skill-badge {
-    background: var(--card-bg);
-    color: var(--text-color);
-    padding: 8px 18px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 14px;
-    transition: 0.3s ease;
-}
-.skill-badge:hover {
-    background: var(--main-color);
-    color: #fff;
-    transform: translateY(-3px);
-}
+.skill-badge { background: var(--card-bg); color: var(--text-color); padding: 8px 18px; border-radius: 6px; font-weight: 600; }
 
 /* ==========================================================================
-   7. قسم المعرض والأبعاد المحمية للمشاريع (Aspect Ratio 9:16)
+   7. قسم أعمالي (الكروت الأفقية الاحترافية والمسافات المحمية 9:16)
    ========================================================================== */
-.portfolio .container { display: flex; flex-direction: column; }
 .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    justify-content: center;
-    max-width: 800px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* جعل ترتيب الكروت رأسياً تحت بعضها */
+    gap: 40px; /* الفراغ بين الكارت والآخر */
     width: 100%;
 }
+
 .portfolio-card {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    display: flex; /* تحويل محاذاة الكارت الداخلي ليكون أفقياً (عرضياً) بالكامل */
+    align-items: center;
     background: var(--second-bg-color);
     border: 1px solid var(--card-bg);
-    padding: 15px; /* مسافة التناغم الهندسية الثابتة */
+    border-radius: 16px;
+    padding: 24px; /* مسافة وفراغ الحماية الهندسية حول المحتوى والأب */
+    gap: 30px; /* الفراغ المريح بين الصورة والنصوص بجانبها */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+.portfolio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
 }
 
+/* حاوية الصورة لفرض الأبعاد الطولية الذكية 9:16 بشكل متزن عرضياً */
 .portfolio-img-container {
-    width: 100%;
-    aspect-ratio: 9 / 16; /* إجبار الصورة على أبعاد 9:16 دون تمطيط */
-    border-radius: 8px;
+    flex: 0 0 180px; /* عرض ثابت وعادل للصورة داخل الكارت الأفقي */
+    aspect-ratio: 9 / 16; /* نسبة الـ 9:16 المطلوبة بدقة */
+    border-radius: 12px;
     overflow: hidden;
     background: var(--bg-color);
 }
+.portfolio-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* منع تمدد أو تمطيط محتوى لقطة الشاشة */
+    transition: transform 0.4s ease;
+}
+.portfolio-card:hover .portfolio-img-container img { transform: scale(1.04); }
 
-.portfolio-img-container img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: contain; /* حماية هيكل الصورة والأب من التشويه */
-    transition: 0.5s ease; 
+/* صندوق البيانات النصية الملاصق للصورة أفقياً */
+.portfolio-info-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* محاذاة البيانات بحسب اتجاه الصفحة */
 }
-.portfolio-card:hover .portfolio-img-container img { transform: scale(1.05); }
-
-.portfolio-layer {
-    position: absolute;
-    bottom: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.4), var(--main-color) 90%);
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-    text-align: center; padding: 0 20px;
-    transform: translateY(100%); transition: 0.5s ease; color: #fff;
-    z-index: 2;
-}
-.portfolio-card:hover .portfolio-layer { transform: translateY(0); }
-.portfolio-layer h4 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
-.portfolio-layer p { font-size: 13px; line-height: 1.6; margin-bottom: 20px; }
-.portfolio-layer a {
-    width: 45px; height: 45px; background: #fff; border-radius: 50%;
-    display: inline-flex; justify-content: center; align-items: center; color: #333; font-size: 18px;
-    transition: 0.3s;
-}
+.portfolio-info-box h4 { font-size: 24px; font-weight: 700; color: var(--text-color); margin-bottom: 12px; }
+.portfolio-info-box p { font-size: 15px; line-height: 1.8; color: var(--text-color); opacity: 0.85; margin-bottom: 20px; text-align: justify; }
+.btn-project { padding: 10px 20px; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
 
 /* ==========================================================================
-   8. قسم الاتصال والفوتر (Contact & Footer)
+   8. قسم الاتصال والفوتر
    ========================================================================== */
 .contact { background: var(--second-bg-color); }
-.contact .container { display: flex; flex-direction: column; }
-.contact-form { max-width: 750px; margin: 0 auto; text-align: center; width: 100%; }
+.contact-form { max-width: 750px; margin: 0 auto; width: 100%; }
 .contact-form .input-box { display: flex; justify-content: space-between; flex-wrap: wrap; }
+.contact-form .input-box input { width: 49%; }
 .contact-form .input-box input, .contact-form textarea {
     width: 100%; padding: 16px; background: var(--bg-color); color: var(--text-color);
-    border-radius: 8px; margin: 12px 0; font-size: 15px;
-    border: 1px solid transparent; transition: 0.3s;
+    border-radius: 8px; margin: 12px 0; font-size: 15px; transition: 0.3s;
 }
-.contact-form .input-box input:focus, .contact-form textarea:focus {
-    border-color: var(--main-color);
-    background: var(--second-bg-color);
-}
-.contact-form .input-box input { width: 49%; }
-.contact-form textarea { resize: none; }
+.contact-form .input-box input:focus, .contact-form textarea:focus { border-color: var(--main-color); background: var(--second-bg-color); }
+.contact textarea { resize: none; }
 
-.footer {
-    background: var(--bg-color);
-    text-align: center;
-    padding: 30px 0;
-    border-top: 1px solid var(--card-bg);
-    font-size: 15px;
-    color: var(--text-color);
-}
-.footer a { color: var(--footer-link); font-weight: 700; text-decoration: none; }
-.footer a:hover { text-decoration: underline; }
+.footer { background: var(--bg-color); text-align: center; padding: 30px 0; border-top: 1px solid var(--card-bg); font-size: 15px; }
+.footer a { color: var(--footer-link); font-weight: 700; }
 
 /* ==========================================================================
-   9. شاشات التجاوب (Media Queries)
+   9. شاشات التجاوب والتحول الذكي للهواتف
    ========================================================================== */
 @media (max-width: 991px) {
-    .container { width: 90%; }
     section { padding: 100px 0 60px 0; }
-    .home-wrapper { flex-direction: column-reverse; text-align: center; }
+    .home-wrapper { flex-direction: column-reverse; text-align: center; gap: 30px; }
     .buttons, .social-icons { justify-content: center; }
     .contact-form .input-box input { width: 100%; }
-    .logo span { display: none; }
 }
 
 @media (max-width: 768px) {
@@ -324,11 +262,13 @@ section {
     .navbar {
         position: absolute; top: 100%; left: 0; width: 100%;
         background: var(--second-bg-color); padding: 15px 0;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.05);
-        display: none; flex-direction: column; text-align: center;
-        border-top: 1px solid var(--card-bg);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.05); display: none; flex-direction: column;
     }
     .navbar.active { display: flex; }
     .navbar a { display: block; margin: 15px 0; font-size: 18px; margin-inline-end: 0 !important; }
-    .home-img .img-box img { width: 260px; height: 260px; }
+    
+    /* عند الموبايل، تقلب الكروت الأفقية لعمودية تلقائياً لراحة اليد والقراءة */
+    .portfolio-card { flex-direction: column; align-items: stretch; text-align: center; }
+    .portfolio-img-container { flex: 0 0 auto; width: 100%; max-width: 220px; margin: 0 auto; }
+    .portfolio-info-box { align-items: center; }
 }
